@@ -28,7 +28,7 @@ while opcion:
             peliculas.borrarPelicula()
             peliculas.esperarTecla()
         case "3":
-            peliculas.modificarPelicula()
+            peliculas.modificarPeliculas()
             peliculas.esperarTecla()
         case "4":
             peliculas.mostrarPeliculas()
@@ -37,7 +37,7 @@ while opcion:
             peliculas.buscarPelicula()
             peliculas.esperarTecla()
         case "6":
-            peliculas.limpiarLista()
+            peliculas.LimpiarPelicula()
             peliculas.esperarTecla()
         case "7":
             print("\n\t Terminaste la ejecucion del programa gracias por usarlo")
