@@ -64,6 +64,7 @@ tel4=input("Telefono: ")
 nombre4,telefono4=solicitarDatos4(nom4,tel4)
 print(f"\tNombre: {nombre4} \n \tTelefono: {telefono4}")
 
+print("hola")
 
 
 
