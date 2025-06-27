@@ -46,4 +46,4 @@ while opcion:
         case _:
             print("\n\t Opcion no valida, por favor selecciona una opcion del menu")
             peliculas.esperarTecla()
-            opcion=True
+            opcion=False
