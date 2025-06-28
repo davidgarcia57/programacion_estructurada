@@ -28,10 +28,10 @@ def main():
                 calificaciones.esperarTecla()
             case "4":
                 opcion=False
-                print("\n\t Terminaste la ejecucion del programa gracias por usarlo")
+                print("\n\t\t\t\t\t🎉 Terminaste la ejecucion del programa gracias por usarlo")
                 calificaciones.borrarPantalla()
             case _:
-                print("\n\t Opcion no valida, por favor selecciona una opcion del menu")
+                print("\n\t\t\t\t❌ Opcion invalida, vuelva a intentarlo❌\n")
                 calificaciones.esperarTecla()
                 opcion=True
 

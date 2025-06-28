@@ -3,65 +3,68 @@ def borrarPantalla():
     os.system('cls')
 
 def esperarTecla():
-    input("Presiona Enter para continuar...")
+    input("\t\t\t\t⌛ ...Oprima cualquier tecla para continuar... ⏳")
 
 def menu_principal():
-    print("📝 Sistema de Calificaciones")
-    print("\n\t1.- ✅ Agregar Calificación")
-    print("\t2.- 📂 Mostrar Calificaciones")
-    print("\t3.- 🕒 Calcular Promedio")
-    print("\t4.- 🚪 Salir\n")
-    opcion = input("🔍 Selecciona una opción de 1-4: ")
+    print("\t\t\t\t 📝 .::: SISTEMA DE CALIFICACIONES :::. 📝\n")
+    print("\t\t\t\t\t 1️⃣  ➤  Agregar")
+    print("\t\t\t\t\t 2️⃣  ➤  Mostrar")
+    print("\t\t\t\t\t 3️⃣  ➤  Calcular Promedio")
+    print("\t\t\t\t\t 4️⃣  ➤  Buscar")
+    print("\t\t\t\t\t 5️⃣  ➤  Salir\n")
+    opcion = input("\t\t\t\t\t🔍 Selecciona una opción de 1-4: ")
     return opcion
 
 def agregar_calificacion(lista):
     borrarPantalla()
-    print("✅ Agregar Calificaciones\n")
-    nombre = input("👤 Nombre del alumno: ").upper().strip()
+    print("\t\t\t\t📂 .::AGREGAR CALIFICACIONES::. 📂\n")
+    nombre = input("\t\t\t👤 Nombre del alumno: ").upper().strip()
     calificaciones = []
-    for i in range(1, 3 + 1):
-        continua= True
+    for i in range(1, 4):
+        continua = True
         while continua:
             try:
-                cal = float(input(f"📝 Ingrese la calificación {i} de {nombre}: "))
-                if cal >= 0 and cal <= 10:
+                cal = float(input(f"\n\t\t\t📝 Calificación {i}: "))
+                if 0 <= cal <= 10:
                     calificaciones.append(cal)
                     continua = False
                 else:
-                    print("⚠️ La calificación debe estar entre 0 y 10.\n")
+                    print("\n\t\t\t\t❌ Ingrese un número valido ❌\n")
             except ValueError:
-                print("❌ Entrada inválida. Por favor, ingrese un valor número.\n")
+                print("\n\t\t\t\t❌ Ingrese un valor numérico ❌\n")
     lista.append([nombre] + calificaciones)
-    print("\n🎉 Acción realizada con éxito\n")
+    print("\n\t\t\t\t\t🎉 Acción realizada con éxito\n")
 
 def mostrar_calificaciones(lista):
+    ancho = 115
     borrarPantalla()
-    print("📂 Mostrar Calificaciones\n")
+    print("\t\t\t\t📂 .::MOSTRAR CALIFICACIONES::. 📂\n")
     if len(lista) > 0:
-        print(f" {'👤 Nombre':<15}{'📝 Calif. 1':<10}{'📝 Calif. 2':<10}{'📝 Calif. 3':<10}")
-        print("-" * 50)
+        print(f"\t\t\t\t{'::Nombre::':<15}{'::Calif1::':<12}{'Calif2::':<12}{'::Calif3::':<12}")
+        print(("-" * 60).center(ancho))
         for fila in lista:
-            print(f"{fila[0]:<15}{fila[1]:10}{fila[2]:10}{fila[3]:<10}")
-            print("-" * 50)
+            print(f"\t\t\t\t{fila[0]:<15}{fila[1]:<12}{fila[2]:<12}{fila[3]:<12}")
+        print(("-" * 60).center(ancho))
         cuantos = len(lista)
-        print(f"\nSon {cuantos} alumnos\n")
+        print(f"\n\t\t\t\t Son {cuantos} alumnos\n")
     else:
-        print("⚠️ No hay calificaciones registradas.\n")
+        print("\t\t\t\t⚠️  No hay calificaciones registradas.\n")
 
 def calcular_promedio(lista):
     borrarPantalla()
-    print("🕒 Promedio de nuevos alumnos\n")
+    ancho = 90
+    print("\t\t\t\t📂 .::PROMEDIO DE ALUMNOS::. 📂\n")
     if len(lista) > 0:
-        print(f" {'👤 Nombre':<15}{'🧮 Promedio':<10}")
-        print("-" * 40)
+        print(f"\t\t\t\t{'::Nombre::':<15}{'::Promedio::':<12}")
+        print(("-" * 32).center(ancho))
         promedio_grupal = 0
         for fila in lista:
             nombre = fila[0]
             promedio = sum(fila[1:]) / 3
-            print(f"{nombre:<15}{promedio:<10.2f}")
+            print(f"\t\t\t\t{nombre:<15}{promedio:<12.2f}")
             promedio_grupal += promedio
-        print("-" * 40)
-        promedio_grupal = promedio_grupal/ len(lista)
-        print(f"\n🎉 Promedio grupal: {promedio_grupal:.2f}\n")
+        print(("-" * 32).center(ancho))
+        promedio_grupal = promedio_grupal / len(lista)
+        print(f"\n\t\t\t\tEl promedio General: {promedio_grupal:.2f}\n")
     else:
-        print("⚠️ No hay calificaciones registradas.\n")
+        print("\t\t\t\t⚠️  No hay calificaciones registradas.\n")
