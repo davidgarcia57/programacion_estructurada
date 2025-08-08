@@ -164,13 +164,13 @@ def gestionar_proyectos(usuario_id):
             else:
                 for p in proyectos_cliente:
                     print(f"""
-🆔 ID: {p[0]}
-📁 Nombre: {p[1]}
-📍 Ubicación: {p[2]}
-💵 Presupuesto: {p[3]}
-🧱 Materiales: {p[4]}
-📋 Tareas: {p[5]}
-""")
+                            🆔 ID: {p[0]}
+                            📁 Nombre: {p[1]}
+                            📍 Ubicación: {p[2]}
+                            💵 Presupuesto: {p[3]}
+                            🧱 Materiales: {p[4]}
+                            📋 Tareas: {p[5]}
+                            """)
             funciones.esperarTecla()
 
         elif op == "3":
