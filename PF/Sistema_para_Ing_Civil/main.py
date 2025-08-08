@@ -4,47 +4,6 @@ from clientes import cliente
 from proyectos import proyecto
 from getpass import getpass
 
-def main():
-    usuario_actual = None
-    while True:
-        funciones.borrarPantalla()
-        opcion = funciones.menu_usuarios()
-
-        if opcion == "1" or opcion.upper() == "REGISTRO":
-            funciones.borrarPantalla()
-            print("\n\t..:: Registro de Usuario ::..")
-            nombre = input("Nombre: ").strip().upper()
-            apellidos = input("Apellidos: ").strip().upper()
-            email = input("Email: ").strip().lower()
-            password = getpass("Contraseña: ").strip()
-            if usuario.registrar(nombre, apellidos, email, password):
-                print("\n✅ Usuario registrado correctamente.")
-            else:
-                print("\n❌ No se pudo registrar el usuario.")
-            funciones.esperarTecla()
-
-        elif opcion == "2" or opcion.upper() == "LOGIN":
-            funciones.borrarPantalla()
-            print("\n\t..:: Inicio de Sesión ::..")
-            email = input("Email: ").strip().lower()
-            password = getpass("Contraseña: ").strip()
-            user = usuario.inicio_sesion(email, password)
-            if user:
-                usuario_actual = user
-                print(f"\n✅ Bienvenido {user[1]} {user[2]}")
-                funciones.esperarTecla()
-                menu_principal(usuario_actual)
-            else:
-                print("\n❌ Email o contraseña incorrectos.")
-                funciones.esperarTecla()
-
-        elif opcion == "3" or opcion.upper() == "SALIR":
-            print("\n🚪 Saliendo del sistema...")
-            break
-
-        else:
-            print("\n⚠️ Opción no válida.")
-            funciones.esperarTecla()
 
 def menu_principal(usuario):
     while True:
@@ -201,6 +160,47 @@ def gestionar_proyectos(usuario_id):
             print("⚠️ Opción inválida.")
             funciones.esperarTecla()
 
+def main():
+    usuario_actual = None
+    while True:
+        funciones.borrarPantalla()
+        opcion = funciones.menu_usuarios()
+
+        if opcion == "1" or opcion.upper() == "REGISTRO":
+            funciones.borrarPantalla()
+            print("\n\t..:: Registro de Usuario ::..")
+            nombre = input("Nombre: ").strip().upper()
+            apellidos = input("Apellidos: ").strip().upper()
+            email = input("Email: ").strip().lower()
+            password = getpass("Contraseña: ").strip()
+            if usuario.registrar(nombre, apellidos, email, password):
+                print("\n✅ Usuario registrado correctamente.")
+            else:
+                print("\n❌ No se pudo registrar el usuario.")
+            funciones.esperarTecla()
+
+        elif opcion == "2" or opcion.upper() == "LOGIN":
+            funciones.borrarPantalla()
+            print("\n\t..:: Inicio de Sesión ::..")
+            email = input("Email: ").strip().lower()
+            password = getpass("Contraseña: ").strip()
+            user = usuario.inicio_sesion(email, password)
+            if user:
+                usuario_actual = user
+                print(f"\n✅ Bienvenido {user[1]} {user[2]}")
+                funciones.esperarTecla()
+                menu_principal(usuario_actual)
+            else:
+                print("\n❌ Email o contraseña incorrectos.")
+                funciones.esperarTecla()
+
+        elif opcion == "3" or opcion.upper() == "SALIR":
+            print("\n🚪 Saliendo del sistema...")
+            break
+
+        else:
+            print("\n⚠️ Opción no válida.")
+            funciones.esperarTecla()
 if __name__ == "__main__":
     main()
 
